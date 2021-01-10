@@ -37,7 +37,14 @@ class RestaurantTest {
     @Test
     public void menu_select_items_should_return_total_order_value_of_items(){
         restaurant =new Restaurant("Amelie's cafe","Chennai",openingTime,closingTime);
-        assertEquals(388,restaurant.getTotalOrderValueOfSelectedItems("Sweet corn soup","Vegetable lasagne"));
+        restaurant.addToMenu("Sweet corn soup",119);
+        restaurant.addToMenu("Vegetable lasagne", 269);
+
+        try {
+            assertEquals(388,restaurant.getTotalOrderValueOfSelectedItems("Sweet corn soup","Vegetable lasagne"));
+        } catch (itemNotFoundException e) {
+            assertFalse(true);
+        }
     }
 
     @Test

@@ -31,12 +31,12 @@ public class Restaurant {
         return menu;
     }
 
-    private Item findItemByName(String itemName){
+    private Item findItemByName(String itemName) throws itemNotFoundException{
         for(Item item: menu) {
             if(item.getName().equals(itemName))
                 return item;
         }
-        return null;
+        throw new itemNotFoundException(itemName);
     }
 
     public void addToMenu(String name, int price) {
@@ -63,7 +63,13 @@ public class Restaurant {
         return name;
     }
 
-    public int getTotalOrderValueOfSelectedItems(String... selectedItems) {
-        return 0;
+    public int getTotalOrderValueOfSelectedItems(String... selectedItems) throws itemNotFoundException {
+        int totalOrderValue=0;
+        for(String itemName:selectedItems )
+        {
+            Item item= findItemByName(itemName);
+            totalOrderValue+=item.getPrice();
+        }
+        return totalOrderValue;
     }
 }

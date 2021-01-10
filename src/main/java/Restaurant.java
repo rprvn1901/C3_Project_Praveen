@@ -45,7 +45,6 @@ public class Restaurant {
     }
     
     public void removeFromMenu(String itemName) throws itemNotFoundException {
-
         Item itemToBeRemoved = findItemByName(itemName);
         if (itemToBeRemoved == null)
             throw new itemNotFoundException(itemName);
@@ -65,4 +64,7 @@ public class Restaurant {
         return name;
     }
 
+    public int getTotalOrderValueOfSelectedItems(List<Item> selectedItems) {
+        return 0;
+    }
 }

@@ -3,6 +3,8 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
 import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
@@ -28,6 +30,17 @@ class RestaurantTest {
         restaurant = Mockito.spy(new Restaurant("Amelie's cafe","Chennai",openingTime,closingTime));
         Mockito.doReturn(LocalTime.parse("09:30:00")).when(restaurant).getCurrentTime();
         assertFalse(restaurant.isRestaurantOpen());
+    }
+
+
+    // Newly Added Method for TDD -- New Feature of Getting the Total Order value of Selected Items
+    @Test
+    public void menu_select_items_should_return_total_order_value_of_items(){
+        restaurant =new Restaurant("Amelie's cafe","Chennai",openingTime,closingTime);
+        List<Item> selectedItems= new ArrayList<Item>();
+        selectedItems.add(new Item("Sweet corn soup",119));
+        selectedItems.add(new Item("Vegetable lasagne", 269));
+        assertEquals(388,restaurant.getTotalOrderValueOfSelectedItems(selectedItems));
     }
 
     //<<<<<<<<<<<<<<<<<<<<<<<<<OPEN/CLOSED>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>

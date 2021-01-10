@@ -57,14 +57,13 @@ public class Restaurant {
                 +"Opening time:"+ openingTime +"\n"
                 +"Closing time:"+ closingTime +"\n"
                 +"Menu:"+"\n"+getMenu());
-
     }
 
     public String getName() {
         return name;
     }
 
-    public int getTotalOrderValueOfSelectedItems(List<Item> selectedItems) {
+    public int getTotalOrderValueOfSelectedItems(String... selectedItems) {
         return 0;
     }
 }

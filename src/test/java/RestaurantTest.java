@@ -32,21 +32,14 @@ class RestaurantTest {
         assertFalse(restaurant.isRestaurantOpen());
     }
 
-
+    //>>>>>>>>>>>>>>>>>>>>>>>>>>>MENU<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
     // Newly Added Method for TDD -- New Feature of Getting the Total Order value of Selected Items
     @Test
     public void menu_select_items_should_return_total_order_value_of_items(){
         restaurant =new Restaurant("Amelie's cafe","Chennai",openingTime,closingTime);
-        List<Item> selectedItems= new ArrayList<Item>();
-        selectedItems.add(new Item("Sweet corn soup",119));
-        selectedItems.add(new Item("Vegetable lasagne", 269));
-        assertEquals(388,restaurant.getTotalOrderValueOfSelectedItems(selectedItems));
+        assertEquals(388,restaurant.getTotalOrderValueOfSelectedItems("Sweet corn soup","Vegetable lasagne"));
     }
 
-    //<<<<<<<<<<<<<<<<<<<<<<<<<OPEN/CLOSED>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-
-
-    //>>>>>>>>>>>>>>>>>>>>>>>>>>>MENU<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
     @Test
     public void adding_item_to_menu_should_increase_menu_size_by_1(){
         restaurant =new Restaurant("Amelie's cafe","Chennai",openingTime,closingTime);

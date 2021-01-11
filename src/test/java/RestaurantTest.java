@@ -26,7 +26,7 @@ class RestaurantTest {
     public void is_restaurant_open_should_return_true_if_time_is_between_opening_and_closing_time(){
          Restaurant restaurantSpyObj = Mockito.spy(new Restaurant("Amelie's cafe","Chennai",openingTime,closingTime));
          Mockito.doReturn(LocalTime.parse("11:30:00")).when(restaurantSpyObj).getCurrentTime();
-         assertTrue(restaurant.isRestaurantOpen());
+         assertTrue(restaurantSpyObj.isRestaurantOpen());
     }
 
     @Test
@@ -54,6 +54,7 @@ class RestaurantTest {
     public void adding_item_to_menu_should_increase_menu_size_by_1(){
         restaurant.addToMenu("Sweet corn soup",119);
         restaurant.addToMenu("Vegetable lasagne", 269);
+        restaurant.displayDetails();
 
         int initialMenuSize = restaurant.getMenu().size();
         restaurant.addToMenu("Sizzling brownie",319);

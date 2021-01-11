@@ -36,7 +36,7 @@ public class Restaurant {
             if(item.getName().equals(itemName))
                 return item;
         }
-        throw new itemNotFoundException(itemName);
+       return null;
     }
 
     public void addToMenu(String name, int price) {
